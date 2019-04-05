@@ -10,8 +10,16 @@ package floyd.warshall;
  * @author romerojesus
  */
 public class FloydWarshall {
-
-    static void flowd_warshall(int grafo[][]){
+    static int INF=999;     
+    static int[][] M = {    
+                        {0  , INF, INF,  INF, INF}, 
+                        {INF, 0  , INF,  INF, INF}, 
+                        {INF, INF, 0  ,  INF, INF}, 
+                        {INF, INF, INF,  0  , INF}, 
+                        {INF, INF, INF,  INF, 0  }, 
+                                
+                       };
+    static void floyd_warshall(int grafo[][]){
     int n=grafo.length,tmp;
         int[][] caminos= new int [n][n];
         //crear matriz de distnaica
@@ -30,6 +38,7 @@ public class FloydWarshall {
                         caminos[i][j]=k;
                     }
                 }
+                System.out.println(" ");
             }
         }
         System.out.println("");
@@ -40,12 +49,12 @@ public class FloydWarshall {
         System.out.println("");
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m.length; j++) {
-                System.out.print(m[i][j]+" ");
+                System.out.println(m[i][j]+" ");
             }
         }
     }
     public static void main(String[] args) {
-        // TODO code application logic here
+        floyd_warshall(M);
     }
     
 }
